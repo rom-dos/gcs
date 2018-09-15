@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>git cheatsheet</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono|Roboto:300,400" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <section>
+      <h2>getting help</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git help</code></td>
+            <td>git help page</td>
+          </tr>
+          <tr>
+            <td><code>git help [command]</code></td>
+            <td>look up documentation on <code>[command]</code></td>
+          </tr>
+          <tr>
+            <td><code>git help | less</code></td>
+            <td>pipe <code>git help</code> into <code>less</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>configuration</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git config --global user.name "Your Name"</code></td>
+            <td>set Git username</td>
+          </tr>
+          <tr>
+            <td><code>git config --global user.email your.email@example.com</code></td>
+            <td>set Git email address</td>
+          </tr>
+          <tr>
+            <td colspan="2">Git stores global configuration settings in a hidden text file located in your home directory (<code>~/.gitconfig</code>).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>making commits</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git add -A</code></td>
+            <td>add all files (already apart of the repo) to staging for commit</td>
+          </tr>
+          <tr>
+            <td><code>git add .</code></td>
+            <td>add <em>all</em> files to staging for commit</td>
+          </tr>
+          <tr>
+            <td><code>git commit -am &lt;COMMIT&gt;</code></td>
+            <td>add all (existing) files to staging and commit</td>
+          </tr>
+          <tr>
+            <td><code>git commit —amend</code></td>
+            <td>amend the last commit</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section>
+      <h2>viewing commits</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git log</code></td>
+            <td>view log of commits</td>
+          </tr>
+          <tr>
+            <td><code>code log -p</code></td>
+            <td>view log of commits with details</td>
+          </tr>
+          <tr>
+            <td><code>git diff --staged</code></td>
+            <td>diff previous version of repo with staged changes</td>
+          </tr>
+          <tr>
+            <td><code>git diff branch-1 branch-2</code></td>
+            <td>diff <code>branch-1</code> and <code>branch-2</code></td>
+          </tr>
+          <tr>
+            <td><code>git show &lt;SHA&gt;</code></td>
+            <td>show diff vs <code>&lt;SHA&gt;</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>branches</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git checkout &lt;BRANCH&gt;</code></td>
+            <td>check out <code>&lt;BRANCH&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>git checkout -b &lt;BRANCH&gt;</code></td>
+            <td>create and checkout <code>&lt;BRANCH&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>git branch</code></td>
+            <td>list all local branches</td>
+          </tr>
+          <tr>
+            <td><code>git branch -a</code></td>
+            <td>list all (including remote) branches</td>
+          </tr>
+          <tr>
+            <td><code>git merge about-page</code></td>
+            <td>merge <code>about-page</code> branch with current branch (i.e. from <code>master</code>)</td>
+          </tr>
+          <tr>
+            <td><code>git branch -d &lt;BRANCH&gt;</code></td>
+            <td>delete <code>&lt;BRANCH&gt;</code> (if merged)</td>
+          </tr>
+          <tr>
+            <td><code>git branch -D &lt;BRANCH&gt;</code></td>
+            <td>delete branch (even if unmerged) <strong>(dangerous)</strong></td>
+          </tr>
+          <tr>
+            <td><code>git checkout -f</code></td>
+            <td>reset all changes and revert back to latest commit (<code>HEAD</code>)</td>
+          </tr>
+          <tr>
+            <td><code>git reset --hard HEAD</code></td>
+            <td>same as previous</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>remote</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Command</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>git remote add origin &lt;URL&gt;</code></td>
+            <td>add remote connection at <code>&lt;URL&gt;</code></td>
+          </tr>
+          <tr>
+            <td><code>git push -u origin master</code></td>
+            <td>push to <code>master</code> branch of <em>upstream</em> repo</td>
+          </tr>
+          <tr>
+            <td><code>git push</code></td>
+            <td>push to default remote</td>
+          </tr>
+          <tr>
+            <td><code>git clone &lt;clone URL&gt; project-name</code></td>
+            <td>clone repo at <code>&lt;clone URL&gt;</code>. <code>project-name</code> is optional</td>
+          </tr>
+          <tr>
+            <td>git pull</td>
+            <td>pull in changes from remote repository</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</body>
+</html>
